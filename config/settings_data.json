@@ -123,7 +123,7 @@
     "discount_popup_submit_text": "<span>OBRIGADO!<\/span>",
     "popup_enable": true,
     "popup_ago_custom_time": true,
-    "popup_disable_mobile": true,
+    "popup_disable_mobile": false,
     "popup_disable_close": false,
     "salepopup_position": "top",
     "notification_popup_time": "10000",
@@ -571,23 +571,23 @@
           "1557867595137-0": {
             "type": "image",
             "settings": {
-              "image": "",
-              "alignment": "top",
-              "title": "APROVEITE AS PROMOÇÕES DO MÊS",
-              "subheading": "FRETE GRÁTIS PARA TODO BRASIL. PRODUTOS COM ATÉ 50% DE DESCONTO!",
+              "image": "shopify:\/\/shop_images\/banner1-smartwatch.jpg",
+              "alignment": "center",
+              "title": "",
+              "subheading": "",
               "button_label": "",
-              "link": ""
+              "link": "shopify:\/\/products\/wearpai-p80-smart-watch"
             }
           },
           "1557867595137-1": {
             "type": "image",
             "settings": {
-              "image": "",
-              "alignment": "top",
-              "title": "ACEITAMOS TODOS OS CARTÕES",
-              "subheading": "OFERECEMOS UM SITE 100% SEGURO",
+              "image": "shopify:\/\/shop_images\/banner-cozinha.jpg",
+              "alignment": "center",
+              "title": "",
+              "subheading": "",
               "button_label": "",
-              "link": ""
+              "link": "shopify:\/\/products\/2-in-1-seasoning-grinding"
             }
           }
         },
