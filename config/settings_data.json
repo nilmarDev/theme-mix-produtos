@@ -33,8 +33,8 @@
     "custom_text_color": "#000000",
     "discount_bg_color": "#ffffff",
     "discount_normal_text_color": "#000000",
-    "discount_bold_text_color": "#ff8e00",
-    "discount_btn_color": "#e80b0b",
+    "discount_bold_text_color": "#e80b0b",
+    "discount_btn_color": "#003363",
     "discount_btn_txt_color": "#ffffff",
     "hover_color": "#000",
     "hover_opacity": 50,
@@ -239,7 +239,7 @@
       "header": {
         "type": "header",
         "settings": {
-          "remove_space": false,
+          "remove_space": true,
           "align_logo": "left",
           "logo": "shopify:\/\/shop_images\/logo-social.png",
           "desktop_logo_size": "90%",
