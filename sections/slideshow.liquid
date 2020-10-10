@@ -48,9 +48,19 @@
   {% endunless %}
 
    /*===== END BORDER STYLE CSS =====*/
-  
 
-  
+  .slide_desktop {
+    display:none;
+  }
+  @media only screen and (min-width: 768px) {
+    .slide_desktop {
+      display:block;
+    }
+    .slide_mobile {
+      display:none;
+    }
+  }
+    
   </style>
 
 <div data-section-id="{{ section.id }}" data-section-type="slideshow-section">
@@ -109,16 +119,31 @@
               </div>
             {% else %}
                 {% if section.settings.slideshow_height == "full" %}
-                <div class="slideshow__image">
-                 <img src="{{ block.settings.image | img_url: '1920x' }}">
+                  <div class="slideshow__image">
+                  <img src="{{ block.settings.image | img_url: '1920x' }}">
+                  </div>
+                {% else %}
+                <div class="slideshow__image slide_desktop box ratio-container lazyload{% unless forloop.first == true %} lazypreload{% endunless %} js"
+                    data-bgset="{% include 'bgset', image: block.settings.image %}"
+                    data-sizes="auto"
+                    data-parent-fit="cover"
+                    style="background-position: {{ block.settings.alignment }};{% if forloop.first == true %} background-image: url('{{ block.settings.image | img_url: '300x300' }});{% endif %}">
                 </div>
+                  {% if block.settings.image_mobile == blank %}
+                    <div class="slideshow__image js slide_mobile">
+                      <div class="placeholder-background">
+                        {% capture current %}{% cycle 1, 2 %}{% endcapture %}
+                        {{ 'lifestyle-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+                      </div>
+                    </div>
                   {% else %}
-              <div class="slideshow__image box ratio-container lazyload{% unless forloop.first == true %} lazypreload{% endunless %} js"
-                   data-bgset="{% include 'bgset', image: block.settings.image %}"
-                   data-sizes="auto"
-                   data-parent-fit="cover"
-                   style="background-position: {{ block.settings.alignment }};{% if forloop.first == true %} background-image: url('{{ block.settings.image | img_url: '300x300' }});{% endif %}">
-              </div>
+                    <div class="slideshow__image slide_mobile box ratio-container lazyload{% unless forloop.first == true %} lazypreload{% endunless %} js"
+                      data-bgset="{% include 'bgset', image: block.settings.image_mobile %}"
+                      data-sizes="auto"
+                      data-parent-fit="cover"
+                      style="background-position: {{ block.settings.alignment }};{% if forloop.first == true %} background-image: url('{{ block.settings.image_mobile | img_url: '300x300' }});{% endif %}">
+                    </div>
+                  {% endif %}
                 {% endif %}
             {% endif %}
 
@@ -267,7 +292,12 @@
           {
             "type": "image_picker",
             "id": "image",
-            "label": "Image"
+            "label": "Image Desktop"
+          },
+          {
+            "type": "image_picker",
+            "id": "image_mobile",
+            "label": "Image Mobile"
           },
           {
             "type": "select",
